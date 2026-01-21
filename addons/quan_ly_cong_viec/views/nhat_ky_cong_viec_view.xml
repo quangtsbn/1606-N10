@@ -12,7 +12,7 @@
                 <field name="du_an_id"/> 
                 <field name="nhan_vien_ids" widget="many2many_tags"/>
                 <field name="ngay_thuc_hien"/>
-                <field name="muc_do"/>
+                <field name="muc_do" widget="progressbar"/>
                 <field name="trang_thai"/>
                 <field name="giai_doan_id" string="Giai Đoạn"/>
             </tree>
@@ -42,7 +42,7 @@
                         <field name="du_an_id"/> 
                         <field name="nhan_vien_ids" widget="many2many_tags"/>
                         <field name="ngay_thuc_hien"/>
-                        <field name="muc_do"/>
+                        <field name="muc_do" widget="progressbar"/>
                         <field name="trang_thai"/>
                         <field name="giai_doan_id" string="Giai Đoạn"/>
                     </group>

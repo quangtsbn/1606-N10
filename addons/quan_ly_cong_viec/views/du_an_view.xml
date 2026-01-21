@@ -25,6 +25,13 @@
         <field name="model">du_an</field>
         <field name="arch" type="xml">
             <form string="Dự Án">
+                <xpath expr="/form/sheet" position="after">
+                    <div t-if="object.tien_do_du_an == 'hoan_thanh'" style="margin-top: 16px; text-align: right;">
+                        <span style="display: inline-block; background: #27ae60; color: #fff; padding: 8px 24px; font-size: 18px; font-weight: bold; border-radius: 4px; box-shadow: 0 2px 6px #b2f7c1;">
+                            HOÀN THÀNH
+                        </span>
+                    </div>
+                </xpath>
                 <sheet>
                     <group col="4">
                         <field name="ten_du_an"/>

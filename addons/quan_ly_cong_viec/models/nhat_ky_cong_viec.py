@@ -3,6 +3,7 @@ from odoo.exceptions import ValidationError
 
 class NhatKyCongViec(models.Model):
     _name = 'nhat_ky_cong_viec'
+
     _description = 'Nhật Ký Công Việc'
 
     cong_viec_id = fields.Many2one('cong_viec', string='Công Việc', ondelete='cascade')
@@ -50,7 +51,19 @@ class NhatKyCongViec(models.Model):
         for record in self:
             if not (0 <= record.muc_do <= 100):
                 raise ValidationError("Mức Độ Hoàn Thành phải nằm trong khoảng từ 0 đến 100.")
-
+    @api.onchange('trang_thai')
+    def _onchange_trang_thai(self):
+        """Tự động cập nhật mức độ hoàn thành khi đổi trạng thái (mọi trường hợp)"""
+        for record in self:
+            if record.trang_thai == 'chua_hoan_thanh':
+                record.muc_do = 0.0
+            elif record.trang_thai == 'hoan_thanh':
+                record.muc_do = 50.0
+            elif record.trang_thai == 'hoan_thanh_xuat_sac':
+                record.muc_do = 100.0
+            else:
+                record.muc_do = 0.0
+                
     @api.model
     def create(self, vals):
         record = super(NhatKyCongViec, self).create(vals)
