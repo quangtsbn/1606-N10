@@ -6,7 +6,7 @@ class RuiRo(models.Model):
 
     name = fields.Char(string='Tên Rủi ro', required=True)
     description = fields.Text(string='Mô tả')
-    project_id = fields.Many2one('du.an', string='Dự án', required=True)  # Sửa lại để liên kết với dự án
+    project_id = fields.Many2one('du_an', string='Dự án', required=True, ondelete='cascade')  # Sửa lại để liên kết với dự án
     risk_level = fields.Selection([
         ('low', 'Thấp'),
         ('medium', 'Trung Bình'),

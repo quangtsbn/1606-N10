@@ -1,14 +1,14 @@
 from odoo import models, fields, api
 
 class DuAn(models.Model):
-    _name = 'du.an'
+    _inherit = 'du_an'
     _description = 'Dự Án'
 
     name = fields.Char(string="Tên dự án", required=True)
     ngay_bat_dau = fields.Date(string="Ngày bắt đầu")
     ngay_ket_thuc = fields.Date(string="Ngày kết thúc")
     mo_ta = fields.Text(string="Mô tả")
-    cong_viec_ids = fields.One2many('cong.viec', 'du_an_id', string='Công việc')
+    cong_viec_ids = fields.One2many('cong_viec', 'du_an_id', string='Công việc')
     thanh_vien_ids = fields.Many2many('nhan_vien', 'ql_du_an_thanh_vien_rel', 'du_an_id', 'nhan_vien_id', string='Thành viên')
     chi_phi_ids = fields.One2many('chi.phi', 'du_an_id', string='Chi phí')
     trang_thai = fields.Selection([

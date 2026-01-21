@@ -8,6 +8,8 @@ class DuAn(models.Model):
     _rec_name = 'ten_du_an'
 
     ten_du_an = fields.Char(string='Tên Dự Án', required=True)
+    ngay_bat_dau = fields.Date(string="Ngày bắt đầu")
+    ngay_ket_thuc = fields.Date(string="Ngày kết thúc")
     mo_ta = fields.Text(string='Mô Tả')
     # tien_do_du_an = fields.Float(string="Tiến Độ Dự Án (%)", compute="_compute_tien_do", store=True)
     

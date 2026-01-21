@@ -1,12 +1,12 @@
 from odoo import models, fields, api
 
 class CongViec(models.Model):
-    _name = 'cong.viec'
+    _inherit = 'cong_viec'
     _description = 'Công việc'
 
     name = fields.Char('Tên công việc', required=True)
     mo_ta = fields.Text('Mô tả công việc')
-    du_an_id = fields.Many2one('du.an', string='Thuộc dự án', required=True)
+    du_an_id = fields.Many2one('du_an', string='Thuộc dự án', required=True, ondelete='cascade')
     thanh_vien_ids = fields.Many2many('nhan_vien', 'ql_cong_viec_thanh_vien_rel', 'cong_viec_id', 'nhan_vien_id', string='Thành viên')
     phan_tram_hoan_thanh = fields.Float('Phần trăm hoàn thành', compute='_compute_phan_tram_hoan_thanh', store=True, readonly=False)
     trang_thai = fields.Selection([

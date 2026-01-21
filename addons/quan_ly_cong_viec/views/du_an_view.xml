@@ -10,6 +10,8 @@
                 decoration-muted="tien_do_du_an == 'hoan_thanh'"
                 decoration-danger="tien_do_du_an == 'tam_dung'">
                 <field name="ten_du_an"/>
+                <field name="ngay_bat_dau"/>
+                <field name="ngay_ket_thuc"/>
                 <field name="nguoi_phu_trach_id"/>
                 <field name="nhan_vien_ids" widget="many2many_tags"/>
                 <field name="tien_do_du_an"/>
@@ -26,6 +28,8 @@
                 <sheet>
                     <group col="4">
                         <field name="ten_du_an"/>
+                        <field name="ngay_bat_dau"/>
+                        <field name="ngay_ket_thuc"/>
                         <field name="mo_ta"/>
                         <field name="nguoi_phu_trach_id"/>
                         <field name="nhan_vien_ids" widget="many2many_tags"/>

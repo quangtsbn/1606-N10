@@ -14,6 +14,13 @@ class CongViec(models.Model):
     nhan_vien_ids = fields.Many2many('nhan_vien', 'cong_viec_nhan_vien_rel', 'cong_viec_id', 'nhan_vien_id', string='Nhân Viên Tham Gia')
 
     han_chot = fields.Datetime(string='Hạn Chót')
+    deadline = fields.Date(string='Hạn Hoàn Thành')  # Thêm field deadline
+    uu_tien = fields.Selection([
+        ('high', 'Cao'),
+        ('medium', 'Trung bình'),
+        ('low', 'Thấp')
+    ], default='medium', string='Ưu Tiên')  # Thêm field uu_tien
+    thoi_gian_du_kien = fields.Float('Thời Gian Dự Kiến (giờ)')  # Thêm field thoi_gian_du_kien
     giai_doan_id = fields.Many2one('giai_doan_cong_viec', string='Giai Đoạn')
 
     nhat_ky_cong_viec_ids = fields.One2many('nhat_ky_cong_viec', 'cong_viec_id', string='Nhật Ký Công Việc')
@@ -75,11 +82,4 @@ class CongViec(models.Model):
     
     
 
-    @api.constrains('nhan_vien_ids')
-    def _check_nhan_vien_trong_du_an(self):
-        for record in self:
-            if record.du_an_id:
-                nhan_vien_du_an_ids = record.du_an_id.nhan_vien_ids.ids
-                for nhan_vien in record.nhan_vien_ids:
-                    if nhan_vien.id not in nhan_vien_du_an_ids:
-                        raise ValidationError(f"Nhân viên {nhan_vien.display_name} không thuộc dự án này.")
+    # Bỏ ràng buộc giới hạn nhân viên phải thuộc dự án

@@ -9,6 +9,9 @@
                 <field name="du_an_id" string="Dự Án"/>
                 <field name="nhan_vien_ids" widget="many2many_tags" />
                 <field name="han_chot" string="Hạn Chót" widget="datetime"/>
+                <field name="deadline" string="Hạn Hoàn Thành"/>
+                <field name="uu_tien" string="Ưu Tiên"/>
+                <field name="thoi_gian_du_kien" string="Thời Gian Dự Kiến"/>
                 <field name="giai_doan_id" string="Giai Đoạn"/>
                 <field name="phan_tram_cong_viec" widget="progressbar"/>
                 <field name="thoi_gian_con_lai" string="Ngày Còn"/>
@@ -27,6 +30,9 @@
                         <field name="du_an_id" string="Dự Án"/>
                         <field name="nhan_vien_ids" widget="many2many_tags"/>
                         <field name="han_chot" string="Hạn Chót" widget="datetime"/>
+                        <field name="deadline" string="Hạn Hoàn Thành"/>
+                        <field name="uu_tien" string="Ưu Tiên"/>
+                        <field name="thoi_gian_du_kien" string="Thời Gian Dự Kiến"/>
                         <field name="giai_doan_id" string="Giai Đoạn"/>
                         <field name="phan_tram_cong_viec" widget="progressbar"/>
                         <field name="thoi_gian_con_lai" string="Ngày Còn"/> 
@@ -48,7 +54,7 @@
                         <page string="Đánh Giá Nhân Viên">
                             <field name="danh_gia_nhan_vien_ids" mode="tree">
                             <tree>
-                                <field name="nhan_vien_id" string="Nhân Viên"/>
+                                <field name="nhan_vien_id" string="Nhân Viên" domain="[('id', 'in', parent.nhan_vien_ids)]"/>
                                 <field name="diem_so" string="Điểm Số"/>
                                 <field name="nhan_xet" string="Nhận Xét"/>
                                 <field name="ngay_danh_gia" string="Ngày Đánh Giá"/>

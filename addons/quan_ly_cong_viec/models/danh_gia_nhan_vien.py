@@ -28,21 +28,26 @@ class DanhGiaNhanVien(models.Model):
 
     @api.model
     def create(self, vals):
-        """Kiểm tra xem nhân viên có tham gia công việc hoặc dự án không trước khi đánh giá"""
+        """
+        Chỉ kiểm tra nhân viên thuộc công việc, nếu đã thuộc công việc thì không kiểm tra dự án nữa.
+        """
         nhan_vien_id = vals.get('nhan_vien_id')
         cong_viec_id = vals.get('cong_viec_id')
         du_an_id = vals.get('du_an_id')
-        
+
         if cong_viec_id:
             cong_viec = self.env['cong_viec'].browse(cong_viec_id)
             if nhan_vien_id not in cong_viec.nhan_vien_ids.ids:
                 raise ValidationError("Nhân viên này không tham gia công việc đã chọn.")
-        
+            # Nếu nhân viên đã thuộc công việc thì bỏ qua kiểm tra dự án
+            return super(DanhGiaNhanVien, self).create(vals)
+
+        # Nếu không có công việc, kiểm tra dự án như cũ
         if du_an_id:
             du_an = self.env['du_an'].browse(du_an_id)
             if nhan_vien_id not in du_an.nhan_vien_ids.ids:
                 raise ValidationError("Nhân viên này không tham gia dự án đã chọn.")
-        
+
         return super(DanhGiaNhanVien, self).create(vals)
     
     @api.constrains('nhan_vien_id')
