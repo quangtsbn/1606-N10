@@ -33,6 +33,7 @@
         'views/tai_nguyen.xml',
         'views/danh_gia_nhan_vien_view.xml',
         'views/menu.xml',
+        'views/res_config_settings_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

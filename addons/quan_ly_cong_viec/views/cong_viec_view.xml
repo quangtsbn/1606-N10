@@ -24,6 +24,9 @@
         <field name="model">cong_viec</field>
         <field name="arch" type="xml">
             <form string="Công Việc Của Nhân Viên">
+                <header>
+                    <button name="action_ai_analyze_task" string="Phân tích AI" type="object" class="oe_highlight" icon="fa-magic"/>
+                </header>
                 <sheet>
                     <group col="4">
                         <field name="ten_cong_viec" string="Tên Công Việc"/>
@@ -32,6 +35,7 @@
                         <field name="han_chot" string="Hạn Chót" widget="datetime"/>
                         <field name="deadline" string="Hạn Hoàn Thành"/>
                         <field name="uu_tien" string="Ưu Tiên"/>
+                        <field name="do_kho" string="Độ Khó"/>
                         <field name="thoi_gian_du_kien" string="Thời Gian Dự Kiến"/>
                         <field name="giai_doan_id" string="Giai Đoạn"/>
                         <field name="phan_tram_cong_viec" widget="progressbar"/>
@@ -39,6 +43,9 @@
                     </group>
                     <group>
                         <field name="mo_ta" string="Mô Tả Công Việc" colspan="2" widget="html"/>
+                    </group>
+                    <group string="Phân Tích AI" attrs="{'invisible': [('ly_do_ai', '=', False)]}">
+                        <field name="ly_do_ai" string="Đánh Giá Chi Tiết" readonly="1"/>
                     </group>
                     <notebook>
                         <page string="Nhật Ký Công Việc">

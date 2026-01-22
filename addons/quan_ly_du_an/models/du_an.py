@@ -10,7 +10,7 @@ class DuAn(models.Model):
     mo_ta = fields.Text(string="Mô tả")
     cong_viec_ids = fields.One2many('cong_viec', 'du_an_id', string='Công việc')
     thanh_vien_ids = fields.Many2many('nhan_vien', 'ql_du_an_thanh_vien_rel', 'du_an_id', 'nhan_vien_id', string='Thành viên')
-    chi_phi_ids = fields.One2many('chi.phi', 'du_an_id', string='Chi phí')
+    chi_phi_ids = fields.One2many('chi_phi', 'du_an_id', string='Chi phí')
     trang_thai = fields.Selection([
         ('new', 'Mới'),
         ('progress', 'Đang thực hiện'),

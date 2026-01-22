@@ -49,6 +49,18 @@
                         </div>
                     </div>
 
+                    <separator string="Tài nguyên"/>
+                    <div class="dashboard-container">
+                        <div class="dashboard-card blue">
+                            <span class="title">Tổng Loại Tài Nguyên</span>
+                            <span class="value"><field name="tong_so_tai_nguyen" readonly="1"/></span>
+                        </div>
+                        <div class="dashboard-card brown">
+                            <span class="title">Tổng Số Lượng Tài Nguyên</span>
+                            <span class="value"><field name="tong_so_luong_tai_nguyen" readonly="1"/></span>
+                        </div>
+                        <!-- Đã loại bỏ các trường TB tài nguyên/dự án và TB tài nguyên AI gợi ý -->
+                    </div>
                 </group>
             </form>
         </field>
