@@ -19,8 +19,12 @@
 
 </div>
 
-## 📖 1. Giới thiệu
-Platform ERP được áp dụng vào học phần Thực tập doanh nghiệp dựa trên mã nguồn mở Odoo. 
+## 📖 1. Giới thiệu hệ thống
+<p align="justify">
+Platform ERP được áp dụng vào học phần Thực tập doanh nghiệp dựa trên mã nguồn mở Odoo.<br><br>
+Hệ thống <b>Quản lý dự án và công việc</b> được xây dựng nhằm hỗ trợ doanh nghiệp quản lý dự án tập trung, theo dõi tiến độ và phân công nhiệm vụ hiệu quả trong môi trường làm việc số, thay thế cách quản lý rời rạc bằng giấy tờ hoặc Excel. Đồng thời hệ thống giúp số hóa thông tin dự án, cập nhật trạng thái công việc theo thời gian thực, hỗ trợ lưu trữ tài liệu, trao đổi nội bộ và báo cáo tổng hợp, góp phần nâng cao hiệu suất làm việc.
+</p>
+[Poster nhóm 10.pdf](https://github.com/user-attachments/files/25017750/Poster.nhom.10.pdf)
 
 ## 🔧 2. Các công nghệ được sử dụng
 <div align="center">
@@ -89,9 +93,12 @@ python3 odoo-bin.py -c odoo.conf -u all
 ```
 Người sử dụng truy cập theo đường dẫn _http://localhost:8069/_ để đăng nhập vào hệ thống.
 
-## 📝 4. License
-
-© 2024 AIoTLab, Faculty of Information Technology, DaiNam University. All rights reserved.
+## 📝 4. Liên hệ
+<p align="justify">
+Họ và tên: Ngô Minh Quang, Mai Văn Thủy, Bùi Văn Tùng<br>
+Lớp: CNTT 16-06<br>
+</p>    
+© 2026 AIoTLab, Faculty of Information Technology, DaiNam University. All rights reserved.
 
 ---
 
